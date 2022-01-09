@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+        <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    </head>
+    <body>
+        <div>
+            <h2>Spring Boot Crud System -FaktaProduk</h2>
+            <tr>
+                <div align="left" >
+                    <h3><a th:href="@{'/new'}">Add new</a></h3>
+                </div>
+            </tr>
+            <tr>
+                <div class="col-sm-5" align = "center">
+                    <div class="panel-body" align = "center" >
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>
+                                    <th>ID</th>
+                                    <th>sk_employee</th>
+                                    <th>amount</th>
+                                    <th>sk_product</th>
+                                    <th>sk_customer</th>
+                                    <th>sk_waktu</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="fakta : ${listfakta}">
+                                    <td th:text="${fakta.id}"> ID</td>
+                                    <td th:text="${fakta.sk_employee}">sk_employee</td>
+                                    <td th:text="${fakta.amount}">amount</td>
+                                    <td th:text="${fakta.sk_product}">sk_product</td>
+                                    <td th:text="${fakta.sk_customer}">sk_customer</td>
+                                    <td th:text="${fakta.sk_waktu}">sk_waktu</td>
+                                    <td>
+                                        <a th:href="@{'/edit/' + ${fakta.id}}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <a th:href="@{'/delete/' + ${fakta.id}}">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </tr>
+        </div>
+    </body>
+</html>
